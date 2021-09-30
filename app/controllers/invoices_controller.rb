@@ -12,6 +12,7 @@ class InvoicesController < ApplicationController
     end
     
     def edit
+        @invoice = Invoice.find(params[:id])
     end
 
     def create
@@ -25,8 +26,18 @@ class InvoicesController < ApplicationController
     end
 
     def update
+        @invoice = Invoice.find(params[:id])
+        if @invoice.update(params.require(:invoice).permit(:issue_date, :maturity_date, :amount, :vendor_name))
+            flash[:notice]="Invoice editted succesusfully"
+            redirect_to @invoice
+        else
+            render 'edit'
+        end
     end
 
     def destroy
+        @invoice = Invoice.find(params[:id])
+        @invoice.destroy
+        redirect_to invoices_path
     end
 end

@@ -6,6 +6,7 @@
             <td>ID</td>
             <td>Issue date</td>
             <td>Vendor name</td>
+            <td colspan="3">Action</td>
         </tr>
     </thead>
     <tbody>
@@ -14,7 +15,11 @@
                 <td><%= invoice.id %></td>
                 <td><%= invoice.issue_date %></td>
                 <td><%= invoice.vendor_name %></td>
+                <td><%= link_to 'Show', invoice %></td>
+                <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
+                <td><%= link_to 'Delete', invoice, method: :delete, data: { confirm: "Are you sure?"} %></td>
             </tr>
         <% end %>
     </tbody>
 </table>
+<p><%= link_to 'Insert new invoice', new_invoice_path %></p>
