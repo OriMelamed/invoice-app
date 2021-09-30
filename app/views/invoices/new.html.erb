@@ -1,5 +1,14 @@
 <h1> Add new invoice </h1>
 
+<% if @invoice.errors.any? %>
+    <h2>Error:</h2>
+    <ul>
+        <% @invoice.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>
+
 <%= form_with scope: :invoice, url: invoices_path, local: true do |f| %>
     <p>
         <%= f.label :issue_date %><br/>
