@@ -1,6 +1,8 @@
 class InvoicesController < ApplicationController
+
+    before_action :set_invoice, only: [:show, :edit, :update, :destroy]
+
     def show
-        @invoice = Invoice.find(params[:id])
     end
 
     def index
@@ -12,11 +14,10 @@ class InvoicesController < ApplicationController
     end
     
     def edit
-        @invoice = Invoice.find(params[:id])
     end
 
     def create
-        @invoice  = Invoice.new(params.require(:invoice).permit(:issue_date, :maturity_date, :amount, :vendor_name))
+        @invoice  = Invoice.new(invoice_params)
         if @invoice.save
             flash[:notice]="Invoice create succesusfully"
             redirect_to @invoice
@@ -26,8 +27,7 @@ class InvoicesController < ApplicationController
     end
 
     def update
-        @invoice = Invoice.find(params[:id])
-        if @invoice.update(params.require(:invoice).permit(:issue_date, :maturity_date, :amount, :vendor_name))
+        if @invoice.update(invoice_params)
             flash[:notice]="Invoice editted succesusfully"
             redirect_to @invoice
         else
@@ -36,8 +36,18 @@ class InvoicesController < ApplicationController
     end
 
     def destroy
-        @invoice = Invoice.find(params[:id])
         @invoice.destroy
         redirect_to invoices_path
     end
+
+    private
+
+    def set_invoice
+        @invoice = Invoice.find(params[:id])
+    end
+
+    def invoice_params
+        params.require(:invoice).permit(:issue_date, :maturity_date, :amount, :vendor_name)
+    end
+
 end
