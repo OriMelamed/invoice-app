@@ -3,4 +3,6 @@ class Invoice < ApplicationRecord
     validates :maturity_date, presence: true
     validates :amount, presence: true
     validates :vendor_name, presence: true
+
+    belongs_to :buyer
 end
