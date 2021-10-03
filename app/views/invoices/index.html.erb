@@ -10,7 +10,9 @@
         </tr>
     </thead>
     <tbody>
+    <%= will_paginate @invoices %>
         <% @invoices.each do |invoice| %>
+            
             <tr>
                 <td><%= invoice.id %></td>
                 <td><%= invoice.issue_date %></td>
