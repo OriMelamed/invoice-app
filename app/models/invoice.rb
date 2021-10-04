@@ -6,4 +6,13 @@ class Invoice < ApplicationRecord
     validates :buyer_id, presence: true
 
     belongs_to :buyer
+
+    def self.search(search)
+        if search
+            @invoices = Invoice.where(["id LIKE ? ", "%#{search}%"])
+        else
+            all
+        end
+    end
+
 end

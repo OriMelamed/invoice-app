@@ -6,7 +6,7 @@ class InvoicesController < ApplicationController
     end
 
     def index
-        @invoices = Invoice.where(["id LIKE ? ", "%#{params[:search]}%"])
+        @invoices = Invoice.search(params[:search])
     end
 
     def new
