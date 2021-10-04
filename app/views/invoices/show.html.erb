@@ -4,6 +4,7 @@
 <p><strong>Issue date </strong><%= @invoice.issue_date %></p>
 <p><strong>Amount </strong><%= @invoice.amount %></p>
 <p><strong>Vendor name </strong><%= @invoice.vendor_name %></p>
+<p><strong>Buyer name </strong><%= @invoice.buyer_id %></p>
 
 <p><%= link_to 'Edit', edit_invoice_path(@invoice) %>
 <%= link_to 'Delete', @invoice, method: :delete, data: { confirm: "Are you sure?"} %>

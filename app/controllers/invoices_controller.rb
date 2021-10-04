@@ -6,7 +6,7 @@ class InvoicesController < ApplicationController
     end
 
     def index
-        @invoices = Invoice.paginate(page: params[:page], per_page: 1)
+        @invoices = Invoice.paginate(page: params[:page], per_page: 2)
     end
 
     def new
