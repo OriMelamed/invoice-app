@@ -1,5 +1,4 @@
 class InvoicesController < ApplicationController
-
     before_action :set_invoice, only: [:show, :edit, :update, :destroy]
 
     def show
@@ -7,7 +6,7 @@ class InvoicesController < ApplicationController
     end
 
     def index
-        @invoices = Invoice.paginate(page: params[:page], per_page: 2)
+        @invoices = Invoice.where(["id LIKE ? ", "%#{params[:search]}%"])
     end
 
     def new
@@ -41,6 +40,8 @@ class InvoicesController < ApplicationController
         @invoice.destroy
         redirect_to invoices_path
     end
+
+    
 
     private
 
