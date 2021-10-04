@@ -3,6 +3,7 @@ class InvoicesController < ApplicationController
     before_action :set_invoice, only: [:show, :edit, :update, :destroy]
 
     def show
+        @buyer = Buyer.find(params[:id])
     end
 
     def index

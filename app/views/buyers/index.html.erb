@@ -1,0 +1,20 @@
+<h1>Buyers list </h1>
+
+<table>
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Username</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% Buyer.all.each do |buyer| %>
+            <tr>
+                <td><%= buyer.id %></td>
+                <td><%= buyer.username %></td>
+                <td>Placeholder</td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
