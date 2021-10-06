@@ -1,5 +1,5 @@
 class Buyer < ApplicationRecord
-    validates :username, presence:true
-
     has_many :invoices
+
+    validates :username, presence:true
 end

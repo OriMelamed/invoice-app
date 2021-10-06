@@ -1,6 +1,6 @@
-<h1>Invoice list</h1>
+<h1>Invoice list - <%= @buyer.username %></h1>
 
-<%= form_tag invoices_path, :method => 'get' do %>
+<%= form_tag buyer_invoices_path, :method => 'get' do %>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search" %>
 <% end %>
@@ -21,12 +21,8 @@
                 <td><%= invoice.id %></td>
                 <td><%= invoice.issue_date %></td>
                 <td><%= invoice.vendor_name %></td>
-                <td><%= link_to 'Show', invoice %></td>
-                <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
-                <td><%= link_to 'Delete', invoice, method: :delete, data: { confirm: "Are you sure?"} %></td>
-            </tr>
+                </tr>
         <% end %>
     </tbody>
 </table>
 
-<p><%= link_to 'Insert new invoice', new_invoice_path %></p>

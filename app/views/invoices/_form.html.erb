@@ -7,7 +7,7 @@
     </ul>
 <% end %>
 
-<%= form_with(model: @invoice, local: true) do |f| %>
+<%= form_with(model: @buyer.invoice, local: true) do |f| %>
     <p>
         <%= f.label :issue_date %><br/>
         <%= f.datetime_field :issue_date %>

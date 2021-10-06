@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   root 'pages#home'
   get 'about', to: 'pages#about'
-  resources :invoices
-  resources :buyers
+  resources :buyers do
+    resources :invoices
+  end
 end
 

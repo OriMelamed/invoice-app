@@ -13,7 +13,7 @@
             <tr>
                 <td><%= buyer.id %></td>
                 <td><%= buyer.username %></td>
-                <td>Placeholder</td>
+                <td><%= link_to 'Show', buyer_invoices_path(buyer) %></td>
             </tr>
         <% end %>
     </tbody>
