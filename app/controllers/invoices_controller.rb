@@ -7,7 +7,7 @@ class InvoicesController < ApplicationController
     end
 
     def index
-        @invoices = @buyer.invoices.search(params[:search])
+        @pagy, @invoices = pagy(@buyer.invoices.search(params[:search]), items: 2)
     end
 
     def new

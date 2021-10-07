@@ -5,7 +5,7 @@ class BuyersController < ApplicationController
     end
 
     def index
-        @buyers = Buyer.all
+        @pagy, @buyers = pagy(Buyer.all, items:2)
     end
 
 end
