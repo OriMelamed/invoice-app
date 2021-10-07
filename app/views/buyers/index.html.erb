@@ -1,0 +1,22 @@
+<h1>Buyers - list </h1>
+
+<%== pagy_nav(@pagy) %>
+
+<table>
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Username</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% @buyers.each do |buyer| %>
+            <tr>
+                <td><%= buyer.id %></td>
+                <td><%= buyer.username %></td>
+                <td><%= link_to 'Show', buyer_invoices_path(buyer) %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

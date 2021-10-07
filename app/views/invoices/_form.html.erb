@@ -7,7 +7,7 @@
     </ul>
 <% end %>
 
-<%= form_with(model: @invoice, local: true) do |f| %>
+<%= form_with(model: @buyer.invoice, local: true) do |f| %>
     <p>
         <%= f.label :issue_date %><br/>
         <%= f.datetime_field :issue_date %>
@@ -24,6 +24,10 @@
         <%= f.label :vendor_name %><br/>
         <%= f.text_field :vendor_name %>
     </p>
+    <p>
+    <%= f.label :buyer_id %><br/>
+    <%= f.text_field :buyer_id %>
+</p>
     <p>
         <%= f.submit %>
     </p>
