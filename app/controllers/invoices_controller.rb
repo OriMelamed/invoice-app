@@ -42,8 +42,6 @@ class InvoicesController < ApplicationController
         redirect_to buyer_invoices_path
     end
 
-    
-
     private
 
     def set_invoice
